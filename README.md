@@ -1,6 +1,6 @@
 # GenericTemplate
 
-**[Insert a brief description of your application here. Describe its purpose, functionality, etc.]**
+**Kanban application for team collaboration: projects, task assignment to users, comments, and change history. Access is protected by authentication and user roles.**
 
 ## 🌐 Demo
 
