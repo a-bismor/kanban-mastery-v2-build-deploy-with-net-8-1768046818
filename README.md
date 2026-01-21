@@ -1,6 +1,6 @@
 # GenericTemplate
 
-**Kanban board for task management: boards, columns, and cards. Users can log in, create tasks, drag them between columns, and set priorities and due dates.**
+**Kanban board for task management (boards, columns, cards) with authentication and user roles. Users create tasks, assign them, add comments, and move them between columns while preserving a change history.**
 
 ## 🌐 Demo
 
