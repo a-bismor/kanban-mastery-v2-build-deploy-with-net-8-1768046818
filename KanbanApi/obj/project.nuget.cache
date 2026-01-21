@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZUWGOnmPtBw=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\bismo\\source\\repos\\a-bismor\\kanban-mastery-v2-build-deploy-with-net-8-1768046818\\KanbanApi\\KanbanApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bismo\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.1\\microsoft.aspnetcore.openapi.10.0.1.nupkg.sha512",
+    "C:\\Users\\bismo\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
