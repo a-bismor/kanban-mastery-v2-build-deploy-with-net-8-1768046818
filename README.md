@@ -1,4 +1,4 @@
-# GenericTemplate
+# Sprintpad 
 
 **Kanban board for task management (boards, columns, cards) with authentication and user roles. Users create tasks, assign them, add comments, and move them between columns while preserving a change history.**
 
