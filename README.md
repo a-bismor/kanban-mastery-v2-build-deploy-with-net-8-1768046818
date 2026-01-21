@@ -1,6 +1,6 @@
 # GenericTemplate
 
-**[Insert a brief description of your application here. Describe its purpose, functionality, etc.]**
+**Kanban board for task management: boards, columns, and cards. Users can log in, create tasks, drag them between columns, and set priorities and due dates.**
 
 ## 🌐 Demo
 
