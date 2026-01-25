@@ -1,0 +1,11 @@
+﻿using System.Collections.Generic;
+
+public class Column
+{
+    public int Id { get; set; }
+    public required string Name { get; set; }
+    public required int Order { get; set; }
+    public int BoardId { get; set; }
+    public Board Board { get; set; } = null!;
+    public List<Card> Cards { get; set; } = new();
+}
