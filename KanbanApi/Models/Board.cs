@@ -1,15 +1,12 @@
 ﻿using System.Collections.Generic;
+namespace KanbanApi.Models;
 
 public class Board
 {
     public int Id { get; set; }
     public string Name { get; set; } = "";
-<<<<<<< HEAD
-    // TODO: Consider Using ICollecion instead of List as an interface keeps the property less coupled to a specific implementation.
-=======
->>>>>>> e8d1ac6 (feat(models): add Board, Column, Card, ApplicationUser and BoardMember)
-    public List<Column> Columns { get; set; } = new();
-    public List<BoardMember> Members { get; set; } = new();
+    public ICollection<Column> Columns { get; set; } = new List<Column>();
+    public ICollection<BoardMember> Members { get; set; } = new List<BoardMember>();
 
     // Factory function
     public static Board Create(string name)
