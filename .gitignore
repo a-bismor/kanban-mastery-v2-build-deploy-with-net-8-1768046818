@@ -1,3 +1,77 @@
+############################################################
+# Visual Studio / MSBuild / .NET
+############################################################
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.slnx
+
+# Visual Studio working folder
 .vs/
-Kanban.slnx
-KanbanApi/obj
+
+# Build results
+**/bin/
+**/obj/
+
+# MSBuild / NuGet
+*.project.lock.json
+*.nupkg
+*.snupkg
+**/packages/
+.nuget/NuGet.Config.backup
+
+# Publish output
+**/publish/
+**/app.publish/
+
+############################################################
+# Visual Studio caches / databases
+############################################################
+*.VC.db
+*.VC.VC.opendb
+*.pidb
+*.pdb
+*.ipdb
+*.iobj
+*.ilk
+*.tlog
+
+############################################################
+# ASP.NET / IIS Express
+############################################################
+.vs/config/
+.vs/launch.vs.json
+*.vspscc
+*.vssscc
+
+############################################################
+# EF Core / SQLite local database files
+############################################################
+*.db
+*.sqlite
+*.sqlite3
+*.db-wal
+*.db-shm
+*.db-journal
+
+############################################################
+# Logs / test results
+############################################################
+*.log
+TestResults/
+*.trx
+coverage/
+coverage.*
+*.coverage
+*.coveragexml
+
+############################################################
+# OS noise
+############################################################
+.DS_Store
+Thumbs.db
+ehthumbs.db
