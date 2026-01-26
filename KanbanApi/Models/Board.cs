@@ -4,6 +4,7 @@ public class Board
 {
     public int Id { get; set; }
     public string Name { get; set; } = "";
+    // TODO: Consider Using ICollecion instead of List as an interface keeps the property less coupled to a specific implementation.
     public List<Column> Columns { get; set; } = new();
     public List<BoardMember> Members { get; set; } = new();
 
