@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 
+namespace KanbanApi.Models;
+
 public class Column
 {
     public int Id { get; set; }

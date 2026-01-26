@@ -1,3 +1,6 @@
 .vs/
 Kanban.slnx
 KanbanApi/obj
+bin/
+obj/
+*.db

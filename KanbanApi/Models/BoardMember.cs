@@ -1,5 +1,7 @@
 ﻿using System;
 
+namespace KanbanApi.Models;
+
 public class BoardMember
 {
     public int BoardId { get; set; }
