@@ -10,15 +10,22 @@
 - **Username:** ReplaceThisWithUsername
 - **Password:** ReplaceThisWithPassword
 
+- TODO: Add live demo URL
+- TODO: Add demo credentials or remove this block if not needed
+
 ## 📖 About this Software
 
 Provide a comprehensive explanation of your software here. Dive into its core functionalities, why you opted to create it, its target users, and its value proposition.
+
+- TODO: Replace this section with a real product overview and goals
 
 ### Features:
 
 1. **Feature 1:** Brief description.
 2. **Feature 2:** Brief description.
 3. **...:** Continue listing out the core features of your application.
+
+- TODO: Replace feature placeholders with actual features
 
 ## 🖼️ Screenshots
 
@@ -32,14 +39,7 @@ To give you a visual overview of the application, here are some screenshots:
 
 Add more screenshots as needed. Ensure to replace placeholders with appropriate links and descriptions.
 
-## ⚠️ Warning
-
-**Changing the repository name is NOT allowed.** Renaming this repository can cause issues with the peer review feature integrated into this template. 
-
-If you're planning to present this project to potential employers or external parties:
-
-1. Ensure that all functionalities work as expected.
-2. **Remove this warning section** to maintain a clean and professional look.
+- TODO: Add real screenshots and captions
 
 ## ✅ Best Practices to Follow
 
@@ -53,6 +53,8 @@ To ensure high-quality projects, we recommend adhering to the following best pra
 6. **Continuous Integration (CI):** Implement CI to automatically build and test your project. This ensures that your code is always in a deployable state.
 7. **Continuous Deployment (CD):** While CI is a must, having CD is a nice-to-have feature. It automates the deployment process, ensuring that the latest changes are instantly accessible to users.
 8. **Clean Code:** Avoid clutter or "junk" in your code. Ensure that your codebase is organized, commented when necessary, and follows established coding standards.
+
+- TODO: Confirm these match the project expectations
 
 ---
 
