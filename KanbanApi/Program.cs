@@ -24,3 +24,5 @@ if (app.Environment.IsDevelopment())
 app.MapIdentityApi<ApplicationUser>();
 
 app.Run();
+
+public partial class Program { }
