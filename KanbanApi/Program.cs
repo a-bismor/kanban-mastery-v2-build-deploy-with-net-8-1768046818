@@ -11,6 +11,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Auth (Identity + EF storage)
 builder.Services.AddIdentityApiEndpoints<ApplicationUser>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddAuthorization();
 
 builder.Services.AddOpenApi();
 
@@ -20,6 +21,11 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapGet("/health", () => Results.Ok("ok"));
 
 app.MapIdentityApi<ApplicationUser>();
 
