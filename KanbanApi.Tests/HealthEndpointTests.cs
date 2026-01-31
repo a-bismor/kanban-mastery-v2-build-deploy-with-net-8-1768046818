@@ -1,9 +1,11 @@
 using System.Net;
+using System.Net.Http.Json;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using KanbanApi.Data;
+using Xunit;
 
 namespace KanbanApi.Tests;
 
@@ -49,7 +51,7 @@ public class HealthEndpointTests : IClassFixture<WebApplicationFactory<Program>>
         var response = await client.GetAsync("/health");
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-        var body = await response.Content.ReadAsStringAsync();
+        var body = await response.Content.ReadFromJsonAsync<string>();
         Assert.Equal("ok", body);
     }
 }
