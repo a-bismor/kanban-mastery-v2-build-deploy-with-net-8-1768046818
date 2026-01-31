@@ -75,3 +75,6 @@ coverage.*
 .DS_Store
 Thumbs.db
 ehthumbs.db
+
+# Local context for Codex sessions
+notes.md
