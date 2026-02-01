@@ -59,7 +59,7 @@ public class BoardService : IBoardService
         var board = await _db.Boards.FirstOrDefaultAsync(b => b.Id == id, ct);
         if (board == null)
         {
-            return false;
+            return null;
         }
 
         _db.Boards.Remove(board);
