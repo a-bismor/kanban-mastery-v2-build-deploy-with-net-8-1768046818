@@ -54,12 +54,12 @@ public class BoardService : IBoardService
         return true;
     }
 
-    public async Task<bool?> DeleteAsync(int id, CancellationToken ct = default)
+    public async Task<bool> DeleteAsync(int id, CancellationToken ct = default)
     {
         var board = await _db.Boards.FirstOrDefaultAsync(b => b.Id == id, ct);
         if (board == null)
         {
-            return null;
+            return false;
         }
 
         _db.Boards.Remove(board);
