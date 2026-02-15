@@ -1,4 +1,5 @@
 using System.Net;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
 using KanbanApi.Data;
@@ -102,5 +103,49 @@ public class AuthTests : IClassFixture<WebApplicationFactory<Program>>
         });
 
         Assert.Equal(HttpStatusCode.BadRequest, duplicateResponse.StatusCode);
+    }
+
+    [Fact]
+    public async Task Me_WithValidJwt_ReturnsOkAndCurrentUserData()
+    {
+        var email = $"user-{Guid.NewGuid():N}@example.com";
+        const string password = "Test123!";
+
+        var registerResponse = await _client.PostAsJsonAsync("/register", new
+        {
+            email,
+            password
+        });
+        Assert.Equal(HttpStatusCode.OK, registerResponse.StatusCode);
+
+        var loginResponse = await _client.PostAsJsonAsync("/login", new
+        {
+            email,
+            password
+        });
+        Assert.Equal(HttpStatusCode.OK, loginResponse.StatusCode);
+
+        using var loginPayload = JsonDocument.Parse(await loginResponse.Content.ReadAsStringAsync());
+        var accessToken = loginPayload.RootElement.GetProperty("accessToken").GetString();
+        Assert.False(string.IsNullOrWhiteSpace(accessToken));
+
+        using var request = new HttpRequestMessage(HttpMethod.Get, "/api/users/me");
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+        var meResponse = await _client.SendAsync(request);
+        Assert.Equal(HttpStatusCode.OK, meResponse.StatusCode);
+
+        using var mePayload = JsonDocument.Parse(await meResponse.Content.ReadAsStringAsync());
+        Assert.Equal(email, mePayload.RootElement.GetProperty("email").GetString());
+        Assert.Equal(email, mePayload.RootElement.GetProperty("userName").GetString());
+        Assert.False(string.IsNullOrWhiteSpace(mePayload.RootElement.GetProperty("id").GetString()));
+    }
+
+    [Fact]
+    public async Task Me_WithoutToken_ReturnsUnauthorized()
+    {
+        var response = await _client.GetAsync("/api/users/me");
+
+        Assert.Equal(HttpStatusCode.Unauthorized, response.StatusCode);
     }
 }
