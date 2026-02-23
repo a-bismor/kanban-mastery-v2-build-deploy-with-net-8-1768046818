@@ -2,7 +2,6 @@ using KanbanApi.Data;
 using KanbanApi.Models;
 using KanbanApi.Services;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +14,7 @@ builder.Services.AddIdentityApiEndpoints<ApplicationUser>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddAuthorization();
 builder.Services.AddScoped<IBoardService, BoardService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddOpenApi();
 
@@ -32,21 +32,16 @@ app.MapGet("/health", () => Results.Ok("ok"));
 
 app.MapIdentityApi<ApplicationUser>();
 
-app.MapGet("/api/users/me", async Task<IResult> (ClaimsPrincipal user, ApplicationDbContext db) =>
+app.MapGet("/api/users/me", async Task<IResult> (IUserService userService, HttpContext httpContext, CancellationToken ct) =>
 {
-    var userId = user.FindFirstValue(ClaimTypes.NameIdentifier);
-    if (string.IsNullOrWhiteSpace(userId))
-    {
-        return Results.Unauthorized();
-    }
+    var profileResult = await userService.GetCurrentUserProfileAsync(httpContext.User, ct);
 
-    var appUser = await db.Users.FindAsync(userId);
-    if (appUser is null)
+    return profileResult.Status switch
     {
-        return Results.NotFound();
-    }
-
-    return Results.Ok(new { appUser.Id, appUser.UserName, appUser.Email });
+        UserProfileLookupStatus.Unauthorized => Results.Unauthorized(),
+        UserProfileLookupStatus.NotFound => Results.NotFound(),
+        _ => Results.Ok(profileResult.Profile)
+    };
 }).RequireAuthorization();
 
 app.Run();
